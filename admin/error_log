@@ -1,0 +1,48 @@
+[07-Aug-2025 17:06:45 Asia/Baku] PHP Fatal error:  Uncaught Error: Undefined constant "SESSION_TIMEOUT" in /home/ezizov04/alumpro.az/config/session.php:38
+Stack trace:
+#0 /home/ezizov04/alumpro.az/config/session.php(48): SessionManager::checkTimeout()
+#1 /home/ezizov04/alumpro.az/config/session.php(55): SessionManager::requireLogin()
+#2 /home/ezizov04/alumpro.az/config/session.php(63): SessionManager::requireRole()
+#3 /home/ezizov04/alumpro.az/admin/dashboard.php(7): SessionManager::requireAdmin()
+#4 {main}
+  thrown in /home/ezizov04/alumpro.az/config/session.php on line 38
+[07-Aug-2025 17:09:41 Asia/Baku] PHP Fatal error:  Uncaught Error: Undefined constant "SESSION_TIMEOUT" in /home/ezizov04/alumpro.az/config/session.php:38
+Stack trace:
+#0 /home/ezizov04/alumpro.az/config/session.php(48): SessionManager::checkTimeout()
+#1 /home/ezizov04/alumpro.az/config/session.php(55): SessionManager::requireLogin()
+#2 /home/ezizov04/alumpro.az/config/session.php(63): SessionManager::requireRole()
+#3 /home/ezizov04/alumpro.az/admin/dashboard.php(7): SessionManager::requireAdmin()
+#4 {main}
+  thrown in /home/ezizov04/alumpro.az/config/session.php on line 38
+[07-Aug-2025 17:09:42 Asia/Baku] PHP Fatal error:  Uncaught Error: Undefined constant "SESSION_TIMEOUT" in /home/ezizov04/alumpro.az/config/session.php:38
+Stack trace:
+#0 /home/ezizov04/alumpro.az/config/session.php(48): SessionManager::checkTimeout()
+#1 /home/ezizov04/alumpro.az/config/session.php(55): SessionManager::requireLogin()
+#2 /home/ezizov04/alumpro.az/config/session.php(63): SessionManager::requireRole()
+#3 /home/ezizov04/alumpro.az/admin/dashboard.php(7): SessionManager::requireAdmin()
+#4 {main}
+  thrown in /home/ezizov04/alumpro.az/config/session.php on line 38
+[07-Aug-2025 17:16:41 Asia/Baku] PHP Fatal error:  Uncaught Error: Undefined constant "SESSION_TIMEOUT" in /home/ezizov04/alumpro.az/config/session.php:38
+Stack trace:
+#0 /home/ezizov04/alumpro.az/config/session.php(48): SessionManager::checkTimeout()
+#1 /home/ezizov04/alumpro.az/config/session.php(55): SessionManager::requireLogin()
+#2 /home/ezizov04/alumpro.az/config/session.php(63): SessionManager::requireRole()
+#3 /home/ezizov04/alumpro.az/admin/dashboard.php(7): SessionManager::requireAdmin()
+#4 {main}
+  thrown in /home/ezizov04/alumpro.az/config/session.php on line 38
+[07-Aug-2025 17:16:43 Asia/Baku] PHP Fatal error:  Uncaught Error: Undefined constant "SESSION_TIMEOUT" in /home/ezizov04/alumpro.az/config/session.php:38
+Stack trace:
+#0 /home/ezizov04/alumpro.az/config/session.php(48): SessionManager::checkTimeout()
+#1 /home/ezizov04/alumpro.az/config/session.php(55): SessionManager::requireLogin()
+#2 /home/ezizov04/alumpro.az/config/session.php(63): SessionManager::requireRole()
+#3 /home/ezizov04/alumpro.az/admin/dashboard.php(7): SessionManager::requireAdmin()
+#4 {main}
+  thrown in /home/ezizov04/alumpro.az/config/session.php on line 38
+[07-Aug-2025 17:16:45 Asia/Baku] PHP Fatal error:  Uncaught Error: Undefined constant "SESSION_TIMEOUT" in /home/ezizov04/alumpro.az/config/session.php:38
+Stack trace:
+#0 /home/ezizov04/alumpro.az/config/session.php(48): SessionManager::checkTimeout()
+#1 /home/ezizov04/alumpro.az/config/session.php(55): SessionManager::requireLogin()
+#2 /home/ezizov04/alumpro.az/config/session.php(63): SessionManager::requireRole()
+#3 /home/ezizov04/alumpro.az/admin/dashboard.php(7): SessionManager::requireAdmin()
+#4 {main}
+  thrown in /home/ezizov04/alumpro.az/config/session.php on line 38
