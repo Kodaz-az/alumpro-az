@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Alumpro.Az</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #20B2AA, #4682B4);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            color: white;
+        }
+        .offline-container {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+        }
+        .offline-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        .retry-btn {
+            background: white;
+            color: #20B2AA;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .retry-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">📡</div>
+        <h2>İnternet Əlaqəsi Yoxdur</h2>
+        <p>Xahiş edirik internetə qoşulun və yenidən cəhd edin.</p>
+        <button class="retry-btn" onclick="window.location.reload()">
+            Yenidən Cəhd Et
+        </button>
+        
+        <div style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+            <p>Bəzi funksiyalar offline rejimdə mövcuddur:</p>
+            <ul style="list-style: none; padding: 0;">
+                <li>✓ Keşlənmiş məlumatları görməк</li>
+                <li>✓ Offline formları doldurmaq</li>
+                <li>✓ Məlumatların sinxronizasiyası</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Check for connection and reload when online
+        window.addEventListener('online', function() {
+            window.location.reload();
+        });
+        
+        // Update connection status
+        function updateConnectionStatus() {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }
+        
+        // Check every 5 seconds
+        setInterval(updateConnectionStatus, 5000);
+    </script>
+</body>
+</html>

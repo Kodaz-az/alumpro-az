@@ -1,0 +1,143 @@
+# Alumpro.Az .htaccess configuration
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# HTTPS redirect
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Cache control
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Protect sensitive files
+<Files "*.sql">
+    Require all denied
+</Files>
+
+<Files "*.log">
+    Require all denied
+</Files>
+
+<FilesMatch "\.(htaccess|htpasswd|ini|fla|psd|log|sh)$">
+    Require all denied
+</FilesMatch>
+
+# Block access to config files
+<Files "config.php">
+    Require all denied
+</Files>
+
+# Custom error pages
+ErrorDocument 404 /error/404.php
+ErrorDocument 403 /error/403.php
+ErrorDocument 500 /error/500.php
+
+# Directory browsing
+Options -Indexes
+
+# File upload security
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|jsp|asp|sh|cgi)$">
+    <IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} ^/uploads/
+        RewriteRule ^.*$ - [F,L]
+    </IfModule>
+</FilesMatch>
+
+# URL rewriting for clean URLs
+<IfModule mod_rewrite.c>
+    # Admin panel
+    RewriteRule ^admin/?$ admin/dashboard.php [L]
+    RewriteRule ^admin/([a-zA-Z0-9_-]+)/?$ admin/$1.php [L]
+    
+    # Sales panel
+    RewriteRule ^sales/?$ sales/dashboard.php [L]
+    RewriteRule ^sales/([a-zA-Z0-9_-]+)/?$ sales/$1.php [L]
+    
+    # Customer panel
+    RewriteRule ^customer/?$ customer/dashboard.php [L]
+    RewriteRule ^customer/([a-zA-Z0-9_-]+)/?$ customer/$1.php [L]
+    
+    # Warehouse
+    RewriteRule ^warehouse/?$ warehouse/products.php [L]
+    RewriteRule ^warehouse/([a-zA-Z0-9_-]+)/?$ warehouse/$1.php [L]
+    
+    # API endpoints
+    RewriteRule ^api/([a-zA-Z0-9_-]+)/?$ api/$1.php [L]
+    
+    # PDF generation
+    RewriteRule ^pdf/([a-zA-Z0-9_-]+)/?$ pdf/$1.php [L]
+</IfModule>
+
+# Rate limiting (if mod_security is available)
+<IfModule mod_security.c>
+    SecRule IP:REQUEST_COUNT "@gt 60" "phase:1,deny,status:429,msg:'Rate limit exceeded'"
+</IfModule>
+
+# PHP settings
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value memory_limit 128M
+    php_value max_execution_time 300
+    php_value max_input_vars 3000
+    php_flag log_errors On
+    php_value error_log logs/error.log
+    php_flag display_errors Off
+</IfModule>
+
+<IfModule mod_php8.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value memory_limit 128M
+    php_value max_execution_time 300
+    php_value max_input_vars 3000
+    php_flag log_errors On
+    php_value error_log logs/error.log
+    php_flag display_errors Off
+</IfModule>
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php81” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php81___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
