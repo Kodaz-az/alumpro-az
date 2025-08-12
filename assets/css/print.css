@@ -1,0 +1,202 @@
+/* Print styles for Alumpro.Az */
+
+@media print {
+    /* Reset */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Page setup */
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    /* Hide non-printable elements */
+    .no-print,
+    .btn,
+    .navbar,
+    .sidebar,
+    .modal,
+    .tooltip,
+    .popover,
+    .alert,
+    .pagination,
+    .breadcrumb,
+    .dropdown-menu,
+    nav,
+    header,
+    footer,
+    .print-hide {
+        display: none !important;
+    }
+
+    /* Show print-only elements */
+    .print-only {
+        display: block !important;
+    }
+
+    /* Layout adjustments */
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        background: white !important;
+        color: black !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container,
+    .container-fluid {
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Typography */
+    h1 { font-size: 18pt; margin-bottom: 12pt; }
+    h2 { font-size: 16pt; margin-bottom: 10pt; }
+    h3 { font-size: 14pt; margin-bottom: 8pt; }
+    h4 { font-size: 13pt; margin-bottom: 6pt; }
+    h5 { font-size: 12pt; margin-bottom: 6pt; }
+    h6 { font-size: 11pt; margin-bottom: 4pt; }
+
+    p { margin-bottom: 6pt; }
+
+    /* Tables */
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        margin-bottom: 12pt;
+        font-size: 10pt;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tbody {
+        display: table-row-group;
+    }
+
+    th, td {
+        border: 1px solid #000 !important;
+        padding: 6pt !important;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    th {
+        background-color: #f0f0f0 !important;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Avoid page breaks */
+    .page-break-avoid {
+        page-break-inside: avoid;
+    }
+
+    .page-break-before {
+        page-break-before: always;
+    }
+
+    .page-break-after {
+        page-break-after: always;
+    }
+
+    /* Company header */
+    .company-header {
+        border-bottom: 2px solid #000;
+        margin-bottom: 12pt;
+        padding-bottom: 8pt;
+    }
+
+    .company-info {
+        background-color: #e6f3ff !important;
+        border: 1px solid #000 !important;
+        padding: 8pt !important;
+    }
+
+    /* Order details */
+    .order-details {
+        background-color: #f8f9fa !important;
+        border: 1px solid #ccc !important;
+        padding: 8pt !important;
+        margin-bottom: 8pt;
+    }
+
+    /* Totals section */
+    .total-section {
+        background-color: #e3f2fd !important;
+        border: 2px solid #2196f3 !important;
+        padding: 8pt !important;
+    }
+
+    /* QR codes and barcodes */
+    .qr-code,
+    .barcode {
+        max-width: 100px !important;
+        height: auto !important;
+    }
+
+    /* Signatures */
+    .signature-line {
+        border-bottom: 1px solid #000;
+        width: 200px;
+        margin: 20pt 0 4pt 0;
+        display: inline-block;
+    }
+
+    .signature-block {
+        margin: 12pt 0;
+        page-break-inside: avoid;
+    }
+
+    /* Status badges */
+    .badge {
+        border: 1px solid #000 !important;
+        padding: 2pt 4pt !important;
+        font-size: 9pt !important;
+        background-color: #f0f0f0 !important;
+        color: #000 !important;
+    }
+
+    /* Icons */
+    .bi::before {
+        font-size: 10pt;
+    }
+
+    /* Links */
+    a {
+        color: #000 !important;
+        text-decoration: underline;
+    }
+
+    a[href^="tel:"]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+    }
+
+    a[href^="mailto:"]:after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+    }
+
+    /* Order receipt specific */
+    .receipt-header {
+        text-align: center;
+        margin-bottom: 20pt;
+        page-break-inside: avoid;
+    }
+
+    .receipt-number {
+        font-size: 16pt;
+        font-weight: bold;
+        text-align: center;
+        margin
